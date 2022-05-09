@@ -1,38 +1,52 @@
-.App {
-  text-align: center;
+/* vista de home */
+body { 
+  margin: 0;
+  background-image: url("https://i.imgur.com/Px5Oz7j.jpg");
+  background-repeat: no-repeat;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+#view-home {
+  width: 80%;
+  margin: auto;
+  margin-top: 24%;
+ }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+ #home {
+  background: linear-gradient(#E5C0D2, #C2E6FF);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.image-notes {
+  width: 24%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logo {
+  width: 60%;
+}
+
+#eslogan {
+  width: 78%;
+  margin-bottom: 8%;
+}
+
+#btn-google {
+  width: 65%;
+  padding: 9px 5px 7px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 23px;
+  font-weight: bold;
+  border: solid 1px rgb(230, 230, 90);
+  background-color: rgb(230, 230, 90);
+  border-radius: 20px;
+}
+
+/*Vista de Wall*/
+#user-profile {
+  display: flex;
+  font-family: arial;
+  font-size: 14px;
 }
