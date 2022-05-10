@@ -2,7 +2,7 @@
 body { 
   margin: 0;
   background-image: url("https://i.imgur.com/Px5Oz7j.jpg");
-  background-repeat: no-repeat;
+  background-position-x: center;
 }
 
 #view-home {
@@ -18,11 +18,11 @@ body {
   align-items: center;
 }
 
-.image-notes {
+.image-notesH {
   width: 24%;
 }
 
-.logo {
+.logoH {
   width: 60%;
 }
 
@@ -45,8 +45,41 @@ body {
 }
 
 /*Vista de Wall*/
+#outset{
+  background-color: #D0BFD9;
+  display: flex;
+  justify-content: space-around;
+}
+
+.image-notesW {
+  width: 13%;
+}
+
+.logoW {
+  width: 30%;
+}
+
+.add-note {
+  width: 8%;
+  padding: 25px;
+}
+
+.sign-off {
+  width: 7%;
+  padding: 25px;
+}
+
 #user-profile {
   display: flex;
+  margin-top: 20px;
+}
+.image-profile {
+  width: 10%;
+  border-radius: 50%;
+  padding: 12px;
+}
+
+#user-data {
   font-family: arial;
-  font-size: 14px;
+  font-size: 12px;
 }

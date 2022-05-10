@@ -35,8 +35,8 @@ function Home() {
     return (
       <div id="view-home">
         <div id="home">
-          <img className='image-notes' src="https://i.imgur.com/Wbmj6wv.png" alt="notas"></img>
-          <img className='logo' src="https://i.imgur.com/B3HZxcf.png" alt="logo"></img>
+          <img className='image-notesH' src="https://i.imgur.com/Wbmj6wv.png" alt="notas"></img>
+          <img className='logoH' src="https://i.imgur.com/B3HZxcf.png" alt="logo"></img>
           <img id="eslogan" src="https://i.imgur.com/EgoUkmb.png" alt="eslogan"></img>
           <button onClick={signInWithGoogle} type="submit" id="btn-google">
             <img className='logoGoogle' src="https://i.imgur.com/bD3SqPX.png" alt="logoGoogle">
