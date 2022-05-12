@@ -1,5 +1,6 @@
 import React from 'react'
 import { Navigate, useNavigate } from "react-router-dom"; 
+import { Notes } from './Notes.js'
 
 const Wall = () => {
   let Navigate = useNavigate()
@@ -28,12 +29,12 @@ const Wall = () => {
           <h1>{localStorage.getItem("email")}</h1>
         </div>             
       </div>
-                    
+       <Notes/>          
     </div>
       
-  )
+  );
   
-}
+};
 
 export default Wall
 
