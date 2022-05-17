@@ -28,8 +28,6 @@ const auth = getAuth(app);
 const provider = new GoogleAuthProvider()
 const db = getFirestore(app);
 
-export { db };  
-
 //obtener una lista de notas de la base de datos de firebase
 async function getNotes(db) {
   const notesCol = collection(db, 'noteCollection');
@@ -37,3 +35,5 @@ async function getNotes(db) {
   const noteList = noteSnapshot.docs.map(doc => doc.data());
   return noteList;
 }
+
+export { db, getNotes };  

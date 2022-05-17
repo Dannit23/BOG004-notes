@@ -1,11 +1,12 @@
 import  React, { useState } from 'react';
-import { addDoc, CollectionReference, getFirestore } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore/lite";
+import { db } from "../firebase/firebase"
 
 export const Notes = () => {
 
  const [datos, setDatos] = useState ({
     title: '',
-    content: '',
+    content: ''
  })
 
   //Se crea evento para pintar los datos de la nota
@@ -21,13 +22,12 @@ export const Notes = () => {
   const guardarDatos = async (event) =>{
     event.preventDefault();
     console.log(datos.title + ' ' + datos.content)
-    let docRef = await addDoc(CollectionReference(getFirestore, "noteCollection"), {
-      title: '',
-     content:'',
-    })
-    console.log (docRef)
-    console.log('hola')
-  }
+    let dataToSend = {
+      title: datos.title,
+      content: datos.content
+    }
+  let docRef = await addDoc(collection(db, "noteCollection"), dataToSend)  
+};
 
   return (
     <div>
