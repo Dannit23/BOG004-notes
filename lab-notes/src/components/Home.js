@@ -13,20 +13,20 @@ function Home() {
     signInWithPopup(auth, provider)
     .then((result) => {
       console.log(result) 
-     const name = result.user.displayName;
-     const email = result.user.email;
-     const profilePic = result.user.photoURL;
+      const name = result.user.displayName;
+      const email = result.user.email;
+      const profilePic = result.user.photoURL;
   
-     localStorage.setItem("name", name);
-     localStorage.setItem("email", email);
-     localStorage.setItem("profilePic", profilePic);
+      localStorage.setItem("name", name);
+      localStorage.setItem("email", email);
+      localStorage.setItem("profilePic", profilePic);
   
-     Navigate("/Wall")
+      Navigate("/Wall")
   
     })
   
     .catch((error) => {
-    console.log(error)
+      console.log(error)
     });
     
   };

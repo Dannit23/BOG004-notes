@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Navigate, useNavigate } from "react-router-dom"; 
 import { Notes } from './Notes.js'
-/* import { getNotes } from '../firebase/firebase.js' */
+import { NoteList } from './NoteList'
 
 const Wall = () => {
   let Navigate = useNavigate()
@@ -10,14 +10,6 @@ const Wall = () => {
     console.log('click')
     Navigate("/")
   } 
-
- /*  const [datos, setDatos] = useState ([])
-  getNotes().then(notesList => {
-    notesList.forEach( note => ([
-      ...datos, note
-    ]) )
-    console.log(datos)
-  }); */
 
   return (
     <div id="view-wall">
@@ -38,7 +30,8 @@ const Wall = () => {
           <h1>{localStorage.getItem("email")}</h1>
         </div>             
       </div>
-       <Notes/>          
+       <Notes/> 
+       <NoteList />         
     </div>
       
   );

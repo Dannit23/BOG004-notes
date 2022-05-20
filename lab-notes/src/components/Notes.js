@@ -2,12 +2,13 @@ import  React, { useState } from 'react';
 import { addDoc, collection } from "firebase/firestore/lite";
 import { db } from "../firebase/firebase"
 
+
 export const Notes = () => {
 
  const [datos, setDatos] = useState ({
     title: '',
     content: ''
- })
+ });
 
   //Se crea evento para pintar los datos de la nota
   const handleInputChange = (event) => {
@@ -16,8 +17,8 @@ export const Notes = () => {
       //se realiza copia de los datos que se iran modificando en la nota
       ...datos, 
       [event.target.name] : event.target.value
-    })
-  }
+    });
+  };
   //Se crea el evento del botón de guardar nota
   const guardarDatos = async (event) =>{
     event.preventDefault();
@@ -45,7 +46,6 @@ export const Notes = () => {
         <h3>{datos.title} - {datos.content}</h3>
     </div>
 
-  )
-   
+  ) 
   
 }

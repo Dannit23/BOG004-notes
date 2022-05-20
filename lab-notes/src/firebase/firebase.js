@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import 'firebase/firestore'
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs, query } from 'firebase/firestore/lite';
 
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -29,11 +29,14 @@ const provider = new GoogleAuthProvider()
 const db = getFirestore(app);
 
 //obtener una lista de notas de la base de datos de firebase
-async function getNotes(db) {
-  const notesCol = collection(db, 'noteCollection');
+async function getNotes() {
+  const notesCol = query(collection(db, 'noteCollection'));
   const noteSnapshot = await getDocs(notesCol);
-  const noteList = noteSnapshot.docs.map(doc => doc.data());
-  return noteList;
+  const noteList = noteSnapshot.docs.map(doc => {
+  /*  console.log('DOC', doc)  */
+    return doc.data()});
+    /* console.log(noteList) */  
+   return noteList;
 }
 
 export { db, getNotes };  
