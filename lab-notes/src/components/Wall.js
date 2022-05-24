@@ -31,9 +31,9 @@ const Wall = () => {
         </div>             
       </div>
        <Notes/> 
-       <NoteList />         
+       <NoteList/>         
     </div>
-      
+    
   );
   
 };

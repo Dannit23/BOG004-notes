@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import 'firebase/firestore'
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
-import { getFirestore, collection, getDocs, query } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs, query } from 'firebase/firestore';
 
 
 // TODO: Add SDKs for Firebase products that you want to use

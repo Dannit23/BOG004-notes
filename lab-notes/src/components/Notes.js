@@ -1,10 +1,15 @@
-import  React, { useState } from 'react';
-import { addDoc, collection } from "firebase/firestore/lite";
+import  React, { useState, useContext } from 'react';
+import { addDoc, collection } from "firebase/firestore";
 import { db } from "../firebase/firebase"
+
+//Hook useContext
+
+//Declaracion
+/* export const Context = React.createContext(); */
 
 
 export const Notes = () => {
-
+  
  const [datos, setDatos] = useState ({
     title: '',
     content: ''
@@ -28,9 +33,12 @@ export const Notes = () => {
       content: datos.content
     }
   let docRef = await addDoc(collection(db, "noteCollection"), dataToSend)  
+  //limpiar datos de la nota
+  event.target.reset();
 };
 
   return (
+    
     <div>
         <form onSubmit={guardarDatos}>
             <div>
@@ -45,7 +53,7 @@ export const Notes = () => {
         </form>
         <h3>{datos.title} - {datos.content}</h3>
     </div>
-
+   
   ) 
   
 }
