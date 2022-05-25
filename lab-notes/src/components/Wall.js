@@ -1,15 +1,30 @@
-import React, { useState } from 'react'
-import { Navigate, useNavigate } from "react-router-dom"; 
+import React, { useState, useEffect } from 'react'
+import { useNavigate } from "react-router-dom"; 
 import { Notes } from './Notes.js'
 import { NoteList } from './NoteList'
+import { getNotes } from "../firebase/firebase"
 
 const Wall = () => {
+  //Se usa Navigate para redireccionar a un componente en especifico
   let Navigate = useNavigate()
+  // Se crea funcion del botón cerrar sesión
   function LogoutButton(e) {
     e.preventDefault();
     console.log('click')
     Navigate("/")
   } 
+
+  const [datos, setDatos] = useState ([{
+    title: '',
+    content: ''
+  }])
+  //El hook de useEffect ejecuta nuestra función getNotes, cada vez que haya un cambio de estado al recibir un props nuevo (datos y setDatos).
+  useEffect(()=> {    
+    console.log(useEffect)
+     getNotes().then((newDatos) => {
+        console.log(newDatos)
+        setDatos(newDatos)});
+  }, []);
 
   return (
     <div id="view-wall">
@@ -24,14 +39,14 @@ const Wall = () => {
         </form>
       </div>             
       <div id="user-profile">
-        <img className='image-profile' src={localStorage.getItem("profilePic")} />
+        <img className='image-profile' src={localStorage.getItem("profilePic")} alt="imagenCorreo" />
         <div id="user-data">
           <h1>{localStorage.getItem("name")}</h1>
           <h1>{localStorage.getItem("email")}</h1>
         </div>             
       </div>
-       <Notes/> 
-       <NoteList/>         
+       <Notes setDatos={setDatos}/> 
+       <NoteList datos={datos}/>         
     </div>
     
   );

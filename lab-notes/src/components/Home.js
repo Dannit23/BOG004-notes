@@ -1,12 +1,11 @@
 import React from 'react'
-import { signInWithGoogle } from '../firebase/firebase'
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { Navigate, Route, useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom"; 
 
-//Funcion de logueo con google
 function Home() {
 
   let Navigate = useNavigate()
+  //Se crea función de logueo con google
   const signInWithGoogle = () => {
     const auth = getAuth();
     const provider = new GoogleAuthProvider()

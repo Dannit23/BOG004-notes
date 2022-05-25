@@ -33,10 +33,9 @@ async function getNotes() {
   const notesCol = query(collection(db, 'noteCollection'));
   const noteSnapshot = await getDocs(notesCol);
   const noteList = noteSnapshot.docs.map(doc => {
-  /*  console.log('DOC', doc)  */
-    return doc.data()});
-    /* console.log(noteList) */  
-   return noteList;
+   return ({...doc.data(), id: doc.id})
+  });
+  return noteList;
 }
 
 export { db, getNotes };  

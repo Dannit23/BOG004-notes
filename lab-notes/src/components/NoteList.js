@@ -1,35 +1,33 @@
-import { sendSignInLinkToEmail } from 'firebase/auth';
-import { collection, doc, onSnapshot } from 'firebase/firestore';
-import React, { useState, useEffect, useContext } from 'react'
-import { getNotes, db } from '../firebase/firebase'
-import { Context } from './Notes';
+import { db } from "../firebase/firebase"
+import { doc, deleteDoc } from "firebase/firestore"
+import { async } from "@firebase/util"
 
-export const NoteList = () => {
-  /* const { index, newDatos} = useContext(Context); */
+//Este componente es el que pinta las notas en el muro
+export const NoteList = ({datos}) => {
+ 
+  //Se crea la función editar notas
+  const handleEdit = () => {
+  console.log('Hola')
+ }
+  
+  //Se crea la función de eliminar notas
+  const handleDelete = async (id) => {
+    console.log("nota eliminada")
+    if (window.confirm("¿Estás segur@ de que quieres eliminar esta nota?")) {
+      const docRef = doc(db, 'noteCollection', id);
+      await deleteDoc(docRef);
+    }
+  }
 
-  const [datos, setDatos] = useState ([{
-    title: '',
-    content: ''
-  }])
-
-  useEffect(()=> {
-    onSnapshot(collection(db, 'notesCollection'), (snapshot) => 
-      setDatos(snapshot.docs.map((doc) =>({...doc.data(), id:doc.id})))
-    );
-    
-    console.log(useEffect)
-     getNotes().then((newDatos) => {
-        console.log(newDatos)
-        setDatos(newDatos)});
-  }, []);
-
-  return (
+    return (
     <div>
        <ul>{
-          datos.map((item, index) =>
-           <li key={index}>
-             <p>{item.title}</p> 
-             <p>{item.content}</p> 
+          datos.map((item, id) =>
+           <li key={id}>
+             <textarea disabled value={item.title}/> 
+             <textarea disabled value={item.content}/> 
+             <button onClick={handleEdit}>Editar</button>
+             <button onClick={() => handleDelete(item.id)}>Eliminar</button>
             </li>        
           ) 
         }</ul>
