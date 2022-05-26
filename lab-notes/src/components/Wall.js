@@ -20,11 +20,10 @@ const Wall = () => {
   }])
   //El hook de useEffect ejecuta nuestra función getNotes, cada vez que haya un cambio de estado al recibir un props nuevo (datos y setDatos).
   useEffect(()=> {    
-    console.log(useEffect)
-     getNotes().then((newDatos) => {
-        console.log(newDatos)
-        setDatos(newDatos)});
-  }, []);
+    getNotes().then((newDatos) => {
+      console.log(newDatos)
+      setDatos(newDatos)});
+  },[]);
 
   return (
     <div id="view-wall">
@@ -45,8 +44,8 @@ const Wall = () => {
           <h1>{localStorage.getItem("email")}</h1>
         </div>             
       </div>
-       <Notes setDatos={setDatos}/> 
-       <NoteList datos={datos}/>         
+       <Notes datos={datos} setDatos={setDatos}/> 
+       <NoteList datos={datos} setDatos={setDatos}/>         
     </div>
     
   );

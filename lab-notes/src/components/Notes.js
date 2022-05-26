@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { addDoc, collection } from "firebase/firestore";
 import { db, getNotes } from "../firebase/firebase"
 
-export const Notes = ({ setDatos }) => {
+export const Notes = ({ datos, setDatos }) => {
  //Se crea arreglo para actualizar el estado de los inputs, donde los inputs es donde se almacena la informacion de las notas
   const [inputs, setInputs] = useState([{
    title: '',
@@ -30,10 +30,10 @@ export const Notes = ({ setDatos }) => {
     //Se crea variable para enviar datos a la colección 
     let docRef = await addDoc(collection(db, "noteCollection"), dataToSend)
     getNotes().then((newDatos) => {
-      console.log(newDatos)
       //Se usa setDatos para actualizar los datos
       setDatos(newDatos)
-    });
+    }); 
+   
     //limpiar datos de la nota
     event.target.reset();
 
@@ -53,7 +53,6 @@ export const Notes = ({ setDatos }) => {
           <button type='submit'>guardar</button>
         </div>
       </form>
-      <h3>{inputs.title} - {inputs.content}</h3>
     </div>
 
   )
