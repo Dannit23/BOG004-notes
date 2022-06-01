@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom"; 
 import { Notes } from './Notes.js'
 import { NoteList } from './NoteList'
-import { getNotes } from "../firebase/firebase"
 
 const Wall = () => {
   //Se usa Navigate para redireccionar a un componente en especifico
@@ -18,13 +17,7 @@ const Wall = () => {
     title: '',
     content: ''
   }])
-  //El hook de useEffect ejecuta nuestra función getNotes, cada vez que haya un cambio de estado al recibir un props nuevo (datos y setDatos).
-  useEffect(()=> {    
-    getNotes().then((newDatos) => {
-      console.log(newDatos)
-      setDatos(newDatos)});
-  },[]);
-
+  
   return (
     <div id="view-wall">
       <div id="outset">

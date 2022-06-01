@@ -38,4 +38,12 @@ async function getNotes() {
   return noteList;
 }
 
-export { db, getNotes };  
+//Se crea función para cambiar el valor de datos de la lista de notas
+function notesDatos(setDatos) {
+  getNotes().then((newDatos) => {
+  //Se usa setDatos para actualizar los datos
+  setDatos(newDatos)
+  }); 
+}
+
+export { db, getNotes, notesDatos };  
