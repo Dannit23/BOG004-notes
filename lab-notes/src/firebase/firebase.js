@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import 'firebase/firestore'
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
-import { getFirestore, collection, getDocs, query } from 'firebase/firestore';
+import { getFirestore, collection, getDocs, query, updateDoc, doc } from 'firebase/firestore';
 
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -46,4 +46,9 @@ function notesDatos(setDatos) {
   }); 
 }
 
-export { db, getNotes, notesDatos };  
+//Se crea función para actualizar los datos editados del documento
+async function updateNote(id, title, content) {
+  await updateDoc(doc(db, "noteCollection", id), { title, content });
+};
+
+export { db, getNotes, notesDatos, updateNote };  
