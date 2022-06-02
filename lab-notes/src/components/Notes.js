@@ -29,9 +29,14 @@ export const Notes = ({ datos, setDatos }) => {
     }
     //Se crea variable para enviar datos a la colección 
     let docRef = await addDoc(collection(db, "noteCollection"), dataToSend)
+    //Se llama función para cambiar el valor de datos de la lista de notas
     notesDatos(setDatos)
     //limpiar datos de la nota
     event.target.reset();
+    setInputs({
+      title:'',
+      content:''
+    })
 
   };
 

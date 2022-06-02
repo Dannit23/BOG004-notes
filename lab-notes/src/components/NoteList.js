@@ -22,12 +22,6 @@ export const NoteList = ({datos, setDatos}) => {
    console.log('title', id, title)
  }
 
-  /* //Se crea la función para cambiar el valor de la data
-  const handleChange = (event) => {
-    setTitle(event.target.value)
-    console.log(title)
-  }
- */
   //Se crea la función de eliminar notas
   const handleDelete = async (id) => {
     console.log("nota eliminada")
@@ -39,8 +33,10 @@ export const NoteList = ({datos, setDatos}) => {
   }
 
   //Se crea la función para actualizar los datos de la nota
-  const handleUpdate = async (noteId) => {
+  const handleUpdate = async (event, noteId) => {
     await updateNote(noteId, title, content);
+    event.target.parentElement.children[0].disabled = true
+    event.target.parentElement.children[1].disabled = true
     console.log(title)
     console.log(content)
     console.log(noteId)
@@ -70,15 +66,17 @@ export const NoteList = ({datos, setDatos}) => {
           datos.map((item, id) =>
            <li key={id}>
              <textarea 
-             disabled={item.id !== noteId} 
+             disabled
+             readOnly={item.id !== noteId} 
              value={item.title} 
              onChange={(event) =>changeTitle(event, id)}/> 
              <textarea 
-             disabled={item.id !== noteId}
+             disabled
+             readOnly={item.id !== noteId}
              value={item.content} 
              onChange={(event) =>changeContent(event, id)}/> 
              <button onClick={(event) => handleEdit(event, item.id)}>Editar</button>
-             <button onClick={() => handleUpdate(noteId)}>guardar</button>
+             <button onClick={(event) => handleUpdate(event, noteId)}>guardar</button>
              <button onClick={() => handleDelete(item.id)}>Eliminar</button>
             </li>        
           ) 
