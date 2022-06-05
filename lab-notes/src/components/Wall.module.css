@@ -1,0 +1,40 @@
+.outset { 
+  background-color: #D0BFD9;
+  display: flex;
+  justify-content: space-around;
+}
+
+.imageNotesW {
+  width: 13%;
+}
+  
+.logoW {
+  width: 30%;
+}
+  
+.signOff {
+  padding: 15px;
+  border: none;
+  background: transparent;
+}
+
+.imgSing {
+  width: 70%;
+  margin-top: 18px;
+}
+  
+.userProfile {
+  display: flex;
+  margin-top: 20px;
+}
+
+  .imageProfile {
+    width: 10%;
+    border-radius: 50%;
+    padding: 12px;
+  }
+  
+  .userData {
+    font-family: arial;
+    font-size: 12px;
+  }

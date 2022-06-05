@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { db, notesDatos, updateNote } from "../firebase/firebase"
 import { doc, deleteDoc } from "firebase/firestore"
 import { async } from "@firebase/util"
+import styles from "./NoteList.module.css";
 
 //Este componente es el que pinta las notas en el muro
 export const NoteList = ({datos, setDatos}) => {
@@ -64,20 +65,32 @@ export const NoteList = ({datos, setDatos}) => {
     <div>
        <ul>{
           datos.map((item, id) =>
-           <li key={id}>
+           <li key={id} className={styles.listNote}>
+              <textarea 
+                disabled
+                readOnly={item.id !== noteId} 
+                value={item.title} 
+                onChange={(event) =>changeTitle(event, id)}
+                rows="2" cols="23"
+                className={styles.titleNote}
+              /> 
              <textarea 
-             disabled
-             readOnly={item.id !== noteId} 
-             value={item.title} 
-             onChange={(event) =>changeTitle(event, id)}/> 
-             <textarea 
-             disabled
-             readOnly={item.id !== noteId}
-             value={item.content} 
-             onChange={(event) =>changeContent(event, id)}/> 
-             <button onClick={(event) => handleEdit(event, item.id)}>Editar</button>
-             <button onClick={(event) => handleUpdate(event, noteId)}>guardar</button>
-             <button onClick={() => handleDelete(item.id)}>Eliminar</button>
+                disabled
+                readOnly={item.id !== noteId}
+                value={item.content} 
+                onChange={(event) =>changeContent(event, id)}
+                rows="5" cols="23"
+                className={styles.contentNote} 
+              />
+              <button  onClick={(event) => handleEdit(event, item.id)} className={styles.btnEdit}>
+                <img className={styles.imgEdit} src="https://i.imgur.com/YJaBGB3.png" alt="boton Editar"/>
+              </button>
+              <button onClick={(event) => handleUpdate(event, noteId)} className={styles.btnSave}>
+                <img className={styles.imgSave} src="https://i.imgur.com/5i9iW1b.png" alt="boton Guardar"/>
+              </button>
+              <button onClick={() => handleDelete(item.id)} className={styles.btnDelete}>
+                <img className={styles.imgDelete} src="https://i.imgur.com/ucgr6yR.png" alt="boton Eliminar"/>
+              </button>
             </li>        
           ) 
         }</ul>

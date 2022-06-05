@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { addDoc, collection } from "firebase/firestore";
-import { db, notesDatos } from "../firebase/firebase"
+import { db, notesDatos } from "../firebase/firebase";
+import styles from "./Notes.module.css";
 
 export const Notes = ({ datos, setDatos }) => {
  //Se crea arreglo para actualizar el estado de los inputs, donde los inputs es donde se almacena la informacion de las notas
@@ -44,24 +45,24 @@ export const Notes = ({ datos, setDatos }) => {
 
     <div>
       <form onSubmit={guardarDatos}>
-        <div>
-          <input type='text'
-            id="title-note"
-            name="title" 
-            placeholder="Introducir titulo"
-            onChange={handleInputChange} value={inputs.title}>
-          </input>
-        </div>
-        <div>
+        <div className={styles.createNote}>
           <textarea type='text'
-           id="content-note" 
+            rows="2" cols="23"
+            className={styles.titleNote}
+            name="title" 
+            placeholder="Introducir título..."
+            onChange={handleInputChange} value={inputs.title}>
+          </textarea>
+          <textarea type='text'
+           rows="5" cols="23"
+           className={styles.contentNote} 
            name="content" 
-           placeholder="Introducir Tu nota"
+           placeholder="Introducir Tu nota..."
            onChange={handleInputChange} value={inputs.content}>
           </textarea>
-        </div>
-        <div>
-          <button type='submit'>guardar</button>
+          <button className={styles.btnSave} type='submit'>
+            <img className={styles.addNote} src="https://i.imgur.com/PrK7Qax.png" alt="agregarNota"></img>
+          </button>
         </div>
       </form>
     </div>

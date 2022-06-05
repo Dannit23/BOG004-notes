@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom"; 
 import { Notes } from './Notes.js'
 import { NoteList } from './NoteList'
+import styles from "./Wall.module.css";
 
 const Wall = () => {
   //Se usa Navigate para redireccionar a un componente en especifico
@@ -20,19 +21,18 @@ const Wall = () => {
   
   return (
     <div id="view-wall">
-      <div id="outset">
-        <img className='image-notesW' src="https://i.imgur.com/Wbmj6wv.png" alt="notas"></img> 
-        <img className='logoW' src="https://i.imgur.com/B3HZxcf.png" alt="logo"></img>
-        <img className='add-note' src="https://i.imgur.com/PrK7Qax.png" alt="agregarNota"></img>
+      <div className={styles.outset}>
+        <img className={styles.imageNotesW} src="https://i.imgur.com/Wbmj6wv.png" alt="notas"></img> 
+        <img className={styles.logoW} src="https://i.imgur.com/B3HZxcf.png" alt="logo"></img>
         <form onSubmit={LogoutButton}>
-          <button type='submit' >
-            <img className='sign-off' src="https://i.imgur.com/kkKxJhI.png" alt="cerrarSesion"></img>
+          <button type='submit' className={styles.signOff}>
+            <img className={styles.imgSing} src="https://i.imgur.com/kkKxJhI.png" alt="cerrarSesion"></img>
           </button>
         </form>
       </div>             
-      <div id="user-profile">
-        <img className='image-profile' src={localStorage.getItem("profilePic")} alt="imagenCorreo" />
-        <div id="user-data">
+      <div className={styles.userProfile}>
+        <img className={styles.imageProfile} src={localStorage.getItem("profilePic")} alt="imagenCorreo" />
+        <div className={styles.userData}>
           <h1>{localStorage.getItem("name")}</h1>
           <h1>{localStorage.getItem("email")}</h1>
         </div>             

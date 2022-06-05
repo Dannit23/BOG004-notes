@@ -1,6 +1,7 @@
 import React from 'react'
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom"; 
+import styles from "./Home.module.css";
 
 function Home() {
 
@@ -32,12 +33,12 @@ function Home() {
   
   // Retornamos el componente que pinta la vista de home 
     return (
-      <div id="view-home">
-        <div id="home">
-          <img className='image-notesH' src="https://i.imgur.com/Wbmj6wv.png" alt="notas"></img>
-          <img className='logoH' src="https://i.imgur.com/B3HZxcf.png" alt="logo"></img>
-          <img id="eslogan" src="https://i.imgur.com/EgoUkmb.png" alt="eslogan"></img>
-          <button onClick={signInWithGoogle} type="submit" id="btn-google">
+      <div className={styles.viewHome}>
+        <div className={styles.home}>
+          <img className={styles.imageNotesH} src="https://i.imgur.com/Wbmj6wv.png" alt="notas"></img>
+          <img className={styles.logoH} src="https://i.imgur.com/B3HZxcf.png" alt="logo"></img>
+          <img className={styles.eslogan} src="https://i.imgur.com/EgoUkmb.png" alt="eslogan"></img>
+          <button onClick={signInWithGoogle} type="submit" className={styles.btnGoogle}>
             <img className='logoGoogle' src="https://i.imgur.com/bD3SqPX.png" alt="logoGoogle">
             </img>Iniciar sesión con Google
           </button>
@@ -47,4 +48,4 @@ function Home() {
     )
 }
 
-export default Home
+export default Home 
