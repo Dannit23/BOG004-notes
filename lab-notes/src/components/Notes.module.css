@@ -27,4 +27,5 @@
 
 .addNote {
  width: 90%;
+ pointer-events: none;
 }
