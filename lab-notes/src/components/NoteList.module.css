@@ -1,7 +1,7 @@
 ul{
   display: grid; 
   grid-template-columns: repeat(3, 1fr);
-  justify-content: center;
+  justify-items: center;
 }
 
 .listNote {
@@ -33,5 +33,21 @@ ul{
   pointer-events: none;
 }
 
+/* dispositivos de escritorio */
+@media screen and (min-width:1024px) {
+  .titleNote, .contentNote {
+    font-size: 21px;
+  }  
+  
+  .btnEdit, .btnSave, .btnDelete{
+    margin-left: 17px;
+    margin-top: 3%;
+  }
+
+  .imgEdit, .imgSave, .imgDelete {
+    width: 45%;
+  }
+  
+}
  
 

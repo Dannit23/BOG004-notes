@@ -38,3 +38,24 @@
     font-family: arial;
     font-size: 12px;
   }
+
+/* dispositivos de escritorio */
+@media screen and (min-width:1024px) {
+  .signOff {
+    margin-top: 15px;
+  }
+
+  .imgSing {
+    width: 100%
+  }
+
+  .userData {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width:767px) {
+  .outset { 
+    width: 100%;
+    position: fixed;
+  }
+}

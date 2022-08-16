@@ -36,3 +36,14 @@
   background-color: rgb(230, 230, 90);
   border-radius: 20px;
 }
+
+/* dispositivos de escritorio */
+@media screen and (min-width:1024px) {
+  .btnGoogle {
+    font-size: 30px;
+  }
+
+  .logoGoogle {
+    width: 9%;
+  }
+}

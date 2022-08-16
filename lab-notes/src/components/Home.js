@@ -39,7 +39,7 @@ function Home() {
           <img className={styles.logoH} src="https://i.imgur.com/B3HZxcf.png" alt="logo"></img>
           <img className={styles.eslogan} src="https://i.imgur.com/EgoUkmb.png" alt="eslogan"></img>
           <button onClick={signInWithGoogle} type="submit" className={styles.btnGoogle}>
-            <img className='logoGoogle' src="https://i.imgur.com/bD3SqPX.png" alt="logoGoogle">
+            <img className={styles.logoGoogle} src="https://i.imgur.com/bD3SqPX.png" alt="logoGoogle">
             </img>Iniciar sesión con Google
           </button>
         </div>
